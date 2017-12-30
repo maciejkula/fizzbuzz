@@ -87,4 +87,5 @@ for number in 1..1000 {
     // Update the parameters
     optimizer.step();
     optimizer.zero_gradients();
+}
 ```
