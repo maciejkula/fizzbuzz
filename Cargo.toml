@@ -1,0 +1,8 @@
+[package]
+name = "fizzbuzz"
+version = "0.1.0"
+authors = ["maciejkula <maciej.kula@gmail.com>"]
+
+[dependencies]
+wyrm = { git = "https://github.com/maciejkula/wyrm" }
+rand = "0.3.18"
