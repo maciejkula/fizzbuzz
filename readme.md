@@ -63,7 +63,7 @@ let mut loss = (-(output.clone() * prediction.ln())).scalar_sum();
 ```
 
 The training loop generates new training examples and takes SGD steps:
-```
+```rust
 for number in 1..1000 {
     // Binary-encode the input
     to_binary(number, &mut input_array);
