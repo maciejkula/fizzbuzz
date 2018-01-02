@@ -98,7 +98,9 @@ fn main() {
 
             // Update the parameters
             optimizer.step();
-            optimizer.zero_gradients();
+
+            // Reset the graph
+            loss.zero_gradient();
 
             loss_value += loss.value().scalar_sum();
 
@@ -120,16 +122,17 @@ fn main() {
             );
 
             for &number in [1, 3, 5, 8, 11, 15, 300].iter() {
+                prediction.zero_gradient();
                 to_binary(number as u64, &mut input_array);
                 binary_input.set_value(&input_array);
                 prediction.forward();
                 let label = predicted_label(prediction.value().deref());
 
                 let predicted_string = match label {
-                    0 => "",
-                    1 => "Fizz",
-                    2 => "Buzz",
-                    3 => "FizzBuzz",
+                    0 => format!("{}", number),
+                    1 => "Fizz".into(),
+                    2 => "Buzz".into(),
+                    3 => "FizzBuzz".into(),
                     _ => panic!("This shouldn't happen."),
                 };
 

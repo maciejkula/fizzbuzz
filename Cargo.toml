@@ -1,8 +1,11 @@
 [package]
 name = "fizzbuzz"
-version = "0.1.0"
+version = "0.3.0"
 authors = ["maciejkula <maciej.kula@gmail.com>"]
 
 [dependencies]
-wyrm = { git = "https://github.com/maciejkula/wyrm" }
+wyrm = "0.3.0"
+ndarray = { version = "0.11.0", features = ["blas", "serde-1"] }
+blas-src = { version = "0.1.2", default-features = false, features = ["openblas"] }
+openblas-src = { version = "0.5.6", default-features = false, features = ["cblas"] }
 rand = "0.3.18"
